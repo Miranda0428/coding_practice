@@ -1,47 +1,53 @@
 import time
 
+def turn_left(dir):
+    if dir == 3:
+        return 0
+    return (dir + 1)
+
+
 def test():
-    size = list(map(int, input().split()))
-    loc_dir = list(map(int, input().split()))
 
-    n = size[0]
-    m = size[1]
+    #size = list(map(int, input().split()))
+    #loc_dir = list(map(int, input().split()))
 
-    array = [[0] * m for _ in range(n)]
-    visited = [[0] * m for _ in range(n)]
+    #n = size[0]
+    #m = size[1]
 
-    for i in range(n):
-        array[i] = list(map(int, input().split()))
-    print(array)
+    #array = [[0] * m for _ in range(n)]
+    #visited = [[0] * m for _ in range(n)]
 
-    # 북쪽을 보고있을 경우 한 칸 이동
-    new_loc_dir = loc_dir + [0, -1, 1]
+    #for i in range(n):
+        #array[i] = list(map(int, input().split()))
+    #print(array)
 
-    # 동쪽을 보고있을 경우 한 칸 이동
-    new_loc_dir = loc_dir + [1, 0, 1]
+    size = [4, 4]
+    loc_dir = [1, 1, 0]
+    array = [[0] * 4 for _ in range(4)]
+    visited = [[0] * 4 for _ in range(4)]
 
-    # 남쪽을 보고있을 경우 한 칸 이동
-    new_loc_dir = loc_dir + [0, 1, 1]
+    array = [[1,1,1,1],[1,0,0,1],[1,1,0,1],[1,1,1,1]]
 
-    # 서쪽을 보고있을 경우 한 칸 이동
-    new_loc_dir = loc_dir + [-1, 0, -3]
+    # 서쪽으로 한 칸 이동 loc_dir + [0, -1]
+
+    # 남쪽으로 한 칸 이동 loc_dir + [1, 0]
+
+    # 동쪽으로 한 칸 이동 loc_dir + [0, 1]
+
+    # 북쪽으로 한 칸 이동 loc_dir + [-1, 0]
 
     count = 0
     turn_time = 0
 
+    start_x = loc_dir[0]
+    start_y = loc_dir[1]
+    start_dir = loc_dir[2]
+    visited[start_x][start_y] = 1
+    steps = [[-1, 0],[0, 1],[1, 0],[0, -1]]
+
     while True:
-        visited[loc_dir[0], loc_dir[1]] = 1
-        if loc_dir[2]==1:
-            new_loc_dir = loc_dir + [0, -1, 1]
-            i, j = new_loc_dir[0], new_loc_dir[1]
-            if (visited[i, j]==0) & (array[i, j]==0):
-                loc_dir = new_loc_dir
-                visited[i, j] = 1
-                count += 1
-                continue
-            elif (visited[i, j]==1):
-                loc_dir += [0, 0, 1]
-                turn_time += 1
+        dir = turn_left(start_dir)
+
 
 
 if __name__ == '__main__':
