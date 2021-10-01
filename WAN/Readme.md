@@ -6,4 +6,6 @@ Wrong Answer Note
 - 2차 배열(m * n) 초기화 list = [[0] * n for i in range(m)]
 
 *** DFS/BFS 코드 암기**
-- 교재 기출 Q16 연구소
+- 교재 기출 Q16 연구소 / 백준 14502
+- import itertools 을 사용했다. 사용불가능하다면 어떻게 구현해야 할 것인가?
+- DFS로 구현한다면 더 빨랐을까?
