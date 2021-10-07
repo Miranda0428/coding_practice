@@ -13,6 +13,7 @@ Wrong Answer Note
 
 **sort**
 - 선택/삽입/퀵/계수 sort
+
 **search**
 - 이진탐색
 - p201_7-3_1 : 떡볶이 자르기
