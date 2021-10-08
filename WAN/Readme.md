@@ -13,7 +13,14 @@ Wrong Answer Note
 
 **sort**
 - 선택/삽입/퀵/계수 sort
+- p359_Q23
+- data.sort(key=lambda x: (-int(x[1]),int(x[2]),-int(x[3]),x[0]))
+- sort에서의 lambda 사용...sort의 기준 함수인데 두번째 원소를 기준으로 reverse 이면서~ 세번째 원소를 기준으로 정렬이면서~ 로 해석
+- 즉, 맨 처음 나오는 조건을 최우선으로 하고 그 조건이 유지되는 상황에서 두번째 나오는 조건을 기준으로 정렬
 
 **search**
 - 이진탐색
 - p201_7-3_1 : 떡볶이 자르기
+
+**map**
+- map(int, input().split())은 띄어쓰기로 구분되는 input에 대해서 모두 int 함수를 적용한다는 뜻
