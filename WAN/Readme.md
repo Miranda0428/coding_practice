@@ -24,3 +24,9 @@ Wrong Answer Note
 
 **map**
 - map(int, input().split())은 띄어쓰기로 구분되는 input에 대해서 모두 int 함수를 적용한다는 뜻
+- TypeError: 'map' object is not subscriptable
+- for apple in range(apple_num):
+    apples.append((map(int, input().split()))
+  이렇게 구현하면 apples의 원소들은 map 객체가 되어서 나중에 list 연산을 할 수 없다.
+    apples.append(list(map(int, input().split())))
+  로 구현해야 한다.
