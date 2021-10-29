@@ -44,30 +44,6 @@ def solution(n, nums, oper):
     print(max_total)
     print(min_total)
 
-    # answer = []
-    #
-    # for op in opers:
-    #     num = deque(nums)
-    #     total = num.popleft()
-    #     for i in range(n-1):
-    #         if op[i] == '+':
-    #             total += num.popleft()
-    #         if op[i] == '-':
-    #             total -= num.popleft()
-    #         if op[i] == '*':
-    #             total *= num.popleft()
-    #         if op[i] == '/':
-    #             if total < 0:
-    #                 total = -1 * total
-    #                 total //= num.popleft()
-    #                 total = -1 * total
-    #             else:
-    #                 total //= num.popleft()
-    #     answer.append(total)
-    #
-    # print(max(answer))
-    # print(min(answer))
-
 if __name__ == '__main__':
     n = int(input())
     nums = list(map(int, input().split()))
