@@ -1,3 +1,4 @@
+# 문자열 재정렬
 def solution():
     text = []
     sum = 0

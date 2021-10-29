@@ -1,3 +1,4 @@
+# 럭키 스트레이트
 def solution():
     num = list(input())            # 파이썬은 모든 입력을 str로 받는다. 리스트로 만들고 싶으면 list()를 써야한다.
     len_n = len(num)

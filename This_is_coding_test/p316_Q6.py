@@ -1,39 +1,32 @@
+# 무지의 먹방 라이브
+import heapq
 
 def solution(food_times, k):
     answer = 0
-    len_f = len(food_times)
+    len_food = len(food_times)
 
-    ind = 0
-    time = 0
-
-    while time < k and sum(food_times)!=0:
-        if ind >= len_f:
-            ind = ind % len_f
-
-        if food_times[ind] != 0:
-            food_times[ind] -= 1
-            time += 1
-            ind += 1
-        else:
-            ind += 1
-            continue
-
-    if sum(food_times)==0:
+    if sum(food_times) <= k:
         return -1
 
-    if ind >= len_f:
-        ind = ind % len_f
+    q = []
+    for food in range(len_food):
+        heapq.heappush(q, (food_times[food], food+1))
 
-    while food_times[ind] == 0:
-        ind += 1
-        if ind >= len_f:
-            ind = ind % len_f
-        else:
-            continue
+    sum_time = 0
+    pre_time = 0
 
-    return (ind + 1) % len_f
+    while sum_time + ((q[0][0] - pre_time) * len_food) <= k:
+        food_time, idx = heapq.heappop(q)
+        sum_time += (food_time - pre_time) * len_food
+        len_food -= 1
+        pre_time = food_time
+
+    q.sort(key=lambda x:x[1])
+    remind = k - sum_time
+    food_len = len(q)
+    return q[remind % food_len][1]
 
 if __name__=="__main__":
-    food_times = [0,0,0,0,0,0,0]
+    food_times = [3,1,2]
     k = 5
     print(solution(food_times, k))

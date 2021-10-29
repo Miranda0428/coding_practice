@@ -1,3 +1,4 @@
+# 정렬된 배열에서 특정 수의 개수 구하기
 def solution():
     n, m = map(int, input().split())
     data = list(map(int, input().split()))
@@ -19,14 +20,14 @@ def solution():
     i = mid
     count = 0
     while data[i] == data[i-1]:
-        i-=1
-        count+=1
+        i -= 1
+        count += 1
 
     i = mid
     while data[i] == data[i+1]:
-        i+=1
-        count +=1
-    return count+1
+        i += 1
+        count += 1
+    return count + 1
 
 if __name__ == "__main__":
     print(solution())

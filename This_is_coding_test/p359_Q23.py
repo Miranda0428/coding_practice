@@ -1,15 +1,4 @@
-# def setting_1(tuple):
-#     return tuple[1]
-#
-# def setting_2(tuple):
-#     return tuple[2]
-#
-# def setting_3(tuple):
-#     return tuple[3]
-#
-# def setting_4(tuple):
-#     return tuple[0]
-
+# 국영수
 def solution():
 
     n = int(input())
