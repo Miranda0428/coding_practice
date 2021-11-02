@@ -1,3 +1,10 @@
+# 인구 이동
+# 푸는데 시간이 정말 많이 걸렸다. 7~8시간 걸린 듯
+# 오래걸린 원인 :
+# 1. 문제를 잘못이해했음
+# 2. deepcopy를 하지 하고 얕은 복사를 해서 원하는 결과를 얻지 못함
+# 3. move 라는 flag 기능을 생각해내지 못함
+# 이 문제는 꼭 다시 풀어봐야 한다.
 n, bottom, top = map(int, input().split())
 A = []
 A_list = []
@@ -11,47 +18,52 @@ for i in range(n):
 dx = [0, 0, 1, -1]
 dy = [1, -1, 0, 0]
 
-def dfs(x, y):
-    global visited_list, total
-    if (x, y) is visited_list:
+def dfs(x, y, visited_list, A):
+    global total
+    if (x, y) in visited_list:
         return
     else:
         visited_list.append((x, y))
+        total += A[x][y]
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
-            if nx < 0 or ny < 0 or nx >= n or ny >=n:
-                continue
-            if (nx, ny) in visited_list:
+            if nx < 0 or ny < 0 or nx >= n or ny >= n:
                 continue
             if abs(A[x][y]-A[nx][ny]) >= bottom and abs(A[x][y]-A[nx][ny]) <= top:
-                dfs(nx, ny)
+                dfs(nx, ny, visited_list, A)
+    return total
 
-def solution(n, bottom, top, A):
-    global visited_list, total
-    visited_list = []
-    total = 0
-    visited_save = 0
+import copy
+def solution(n, bottom, top, A, A_list):
+    global total
     count = 0
-    while A_list:
-        visited_save = len(visited_list)
-        x = A_list[0][0]
-        y = A_list[0][1]
-        dfs(x, y)
-        if visited_save == len(visited_list) + 1:
-            A_list.remove((x, y))
-            continue
-        else:
-            for x, y in visited_list:
-                total += A[x][y]
-            average = total//len(visited_list)
-            for x, y in visited_list:
-                A[x][y] = average
-            count += 1
-            for room in visited_list:
-                x, y = room
-                if (x, y) in A_list:
+    move = 1
+    visited_list = []
+    new_A = copy.deepcopy(A)
+    new_A_list = copy.deepcopy(A_list)
+    while move:
+        move = 0
+        A = copy.deepcopy(new_A)
+        A_list = copy.deepcopy(new_A_list)
+        while A_list:
+            total = 0
+            visited_list.clear()
+            x = A_list[0][0]
+            y = A_list[0][1]
+            total = dfs(x, y, visited_list, A)
+
+            if len(visited_list) <= 1:
+                new_A[x][y] = A[x][y]
+                A_list.remove((x, y))
+            else:
+                average = total // len(visited_list)
+                for (x, y) in visited_list:
+                    new_A[x][y] = average
                     A_list.remove((x, y))
+                if move != 1:
+                    move = 1
+                    count += 1
     return count
 
-print(solution(n, bottom, top, A))
+print(solution(n, bottom, top, A, A_list))
