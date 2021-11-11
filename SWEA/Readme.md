@@ -2,11 +2,6 @@
 
 **문자열 숫자를 정수형 숫자로**
 
-for (int j = 0; j < col; ++j) {
-			if (tmp[j] >= 'A')          
-				a = tmp[j] - 'A' + 10;
-			else
-				a = tmp[j] - '0';
 ![image](https://user-images.githubusercontent.com/17174701/141229136-f972a47c-bee9-4ead-831f-1d42404d73fc.png)
 
 
@@ -29,6 +24,9 @@ int solve(num, cnt){
   
   return ret;
   } 와 같은 형식
+  
+  ![image](https://user-images.githubusercontent.com/17174701/141229254-839012ca-e695-46e7-9678-0201815dd448.png)
+
   
   **메모이제이션**
 
