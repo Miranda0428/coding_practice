@@ -18,7 +18,9 @@
 첫번째 것을 선택하고 안하고/ 두번째 것을 선택하고 안하고....기억
 
 int solve(num, cnt){
+
   int ret = 0;
+  
   if(cnt == 0) return ret;
   
   for(int i=0; i<end; ++i)
