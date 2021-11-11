@@ -7,10 +7,11 @@
 첫번째 것을 선택하고 안하고/ 두번째 것을 선택하고 안하고....기억
 
 int solve(num, cnt){
-  int ret = 0
+  int ret = 0;
   if(cnt == 0) return ret;
   
-  solve(f(num), cnt-1)
+  for(int i=0; i<end; ++i)
+    solve(f(num), cnt-1);
   
   return ret;
   } 와 같은 형식
