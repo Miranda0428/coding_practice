@@ -1,4 +1,5 @@
 211111
+
 **완전탐색 재귀호출 암기**
 
 순열 조합 문제는 이것으로 해결 가능
@@ -11,6 +12,7 @@ int solve(num, cnt){
   if(cnt == 0) return ret;
   
   for(int i=0; i<end; ++i)
+  
     solve(f(num), cnt-1);
   
   return ret;
