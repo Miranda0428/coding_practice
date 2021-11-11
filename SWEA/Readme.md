@@ -7,6 +7,7 @@ for (int j = 0; j < col; ++j) {
 				a = tmp[j] - 'A' + 10;
 			else
 				a = tmp[j] - '0';
+![image](https://user-images.githubusercontent.com/17174701/141229136-f972a47c-bee9-4ead-831f-1d42404d73fc.png)
 
 
 211111
