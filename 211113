@@ -1,0 +1,155 @@
+#include <iostream>
+#include <stdio.h>
+#include <vector>
+
+#pragma warning(disable:4996)
+
+using namespace std;
+
+#define MAX_NODE_NUM 10000
+#define MAX_CHILD_NUM 2
+
+typedef struct
+{
+    int parent;
+    int child[MAX_CHILD_NUM];
+} TreeNode;
+
+TreeNode tree[MAX_NODE_NUM];
+int nodeNum;
+int edgeNum;
+int first;
+int second;
+int root;
+int target;
+
+void initTree(void)
+{
+    int i;
+    int j;
+    for (i = 0; i <= nodeNum; i++)
+    {
+        tree[i].parent = -1;
+        for (j = 0; j < MAX_CHILD_NUM; j++)
+        {
+            tree[i].child[j] = -1;
+        }
+    }
+}
+
+void addChild(int parent, int child)
+{
+    int i;
+    for (i = 0; i < MAX_CHILD_NUM; i++)
+    {
+        if (tree[parent].child[i] == -1)
+        {
+            break;
+        }
+    }
+    tree[parent].child[i] = child;
+    tree[child].parent = parent;
+}
+
+int getRoot(void)
+{
+    int i;
+
+    for (i = 1; i <= nodeNum; i++)
+    {
+        if (tree[i].parent == -1)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void preOrder(int root)
+{
+    int i;
+    int child;
+    printf("%d ", root);
+
+    for (i = 0; i < MAX_CHILD_NUM; i++)
+    {
+        child = tree[root].child[i];
+        if (child != -1)
+        {
+            preOrder(child);
+        }
+    }
+}
+
+int find_child(int parent, vector<int>* parents) {
+
+    if (parent == target)
+        return 0;
+
+    if ((tree[parent].child[0] == -1) & (tree[parent].child[1] == -1)) {
+        parents->clear();
+        return 0;
+    }
+        
+    parents->push_back(parent);
+
+    for (int i = 0; i < MAX_CHILD_NUM; i++) {
+        if (tree[parent].child[i] != -1) {
+            cout << "I will find_child of " << tree[parent].child[i] << endl;
+            find_child(tree[parent].child[i], parents);
+        }
+    }
+}
+
+int count_child(int parent) {
+    int num_child = 0;
+
+    return num_child;
+}
+
+int solve() {
+
+    vector<int> first_parents[100];
+    vector<int> second_parents[100];
+
+    target = first;
+    find_child(root, first_parents);
+
+    /*target = second;
+    find_child(root, second_parents);*/
+
+    //for(first_parents.begin())
+
+    return 0;
+}
+
+
+int main(void)
+{
+    int tcCnt;   
+    int parent;
+    int child;
+
+    freopen("test_input.txt", "r", stdin);
+    cin >> tcCnt;
+    for (int i = 0; i < tcCnt; ++i)
+    {
+        cin >> nodeNum >> edgeNum;
+        cin >> first >> second;
+
+        initTree();
+
+        for (i = 0; i < edgeNum; i++)
+        {
+            cin >> parent >> child;
+            addChild(parent, child);
+        }
+
+        root = getRoot();
+
+        int nearest_parent = solve();
+
+        cout << "#" << tcCnt << ' ' << nearest_parent << count_child(nearest_parent) << endl;
+    }
+    return 0;
+}
