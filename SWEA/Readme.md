@@ -1,3 +1,8 @@
+**다시 풀어야할 문제**
+
+최대 상금, 공통 조상 문제는 메모이제이션으로 다시
+
+
 **문자열 숫자를 정수형 숫자로**
 
 ![image](https://user-images.githubusercontent.com/17174701/141229136-f972a47c-bee9-4ead-831f-1d42404d73fc.png)
