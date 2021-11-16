@@ -49,7 +49,7 @@ int solve(num, cnt){
 
 최적 경로를 찾는 것은 가중치의 합 중에 최소인 값을 찾는 것이다.
 
-![image](https://user-images.githubusercontent.com/17174701/141937762-b0a52ba7-6728-44c8-9f10-561356fbc872.png)
+![image](https://user-images.githubusercontent.com/17174701/141939330-27644c7c-a9c2-484e-9891-2486124f7f00.png)
 
 
 for 문위에 int ret = INF;를 쓰지 않아 하루종일 고민했다.
