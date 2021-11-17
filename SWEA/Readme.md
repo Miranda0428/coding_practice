@@ -68,6 +68,16 @@ company가 root이고 home이 말단 노드라고 보면된다.
 
 **가중치가 없는 그래프에서는 bfs로 최단 경로를 구할 수 있다.**
   
+
+**메모이제이션**
   
-  **메모이제이션**
+  1. #include<memory>를 해주고 memo[N][N]을 전역변수로 선언
+  
+  2. main에서 memset(arr, 0x00, sizeof(arr))로 초기화
+  
+  3. 재귀함수에서 레퍼런스 변수로 memo를 지정하고 연산해야 하는 결과가 memo에 있으면 그 값을 리턴한다.
+  (ret = INF 선언이 지역변수에서 전역으로 바뀌었다. 잊지말자.)
+  
+  ![image](https://user-images.githubusercontent.com/17174701/142144210-d8ece9c2-8e0e-435a-97c2-adee47edfd29.png)
+
 
