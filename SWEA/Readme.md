@@ -78,6 +78,8 @@ company가 root이고 home이 말단 노드라고 보면된다.
   3. 재귀함수에서 레퍼런스 변수로 memo를 지정하고 연산해야 하는 결과가 memo에 있으면 그 값을 리턴한다.
   (ret = INF 선언이 지역변수에서 전역으로 바뀌었다. 잊지말자.)
   
+  * 코드가 공식처럼 정해져있으니 외우도록 하자.
+  
   ![image](https://user-images.githubusercontent.com/17174701/142144210-d8ece9c2-8e0e-435a-97c2-adee47edfd29.png)
 
 
