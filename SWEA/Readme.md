@@ -37,7 +37,7 @@ int solve(num, cnt){
   
   } 와 같은 형식
   
-  ![image](https://user-images.githubusercontent.com/17174701/141229254-839012ca-e695-46e7-9678-0201815dd448.png)
+  ![image](https://user-images.githubusercontent.com/17174701/142144446-c298e8b3-7b67-4666-a301-9d03264356a3.png)
 
   
   **가중치가 있는 완전탐색(최적 경로)**
