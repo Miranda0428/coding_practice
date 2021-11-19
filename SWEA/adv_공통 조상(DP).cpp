@@ -1,8 +1,5 @@
-/* 다시 풀어보기 : 메모이제이션으로 최적화 필요 */
-/* LCA 문제는 최적화를 위해 Parent 배열을 사용하고 있는데
-* Parent 배열을 2^k 번째 조상을 저장한다.
-* 바로 윗 조상이 아니라 2^k 번째 조상을 저장하는 이유는,
-* LCA 탐색시 탐색 구간을 빠르게 좁혀나가기 위함이다.(이진탐색처럼) */
+// 바텀업 DP memoization으로 풀어야 한다.
+// 자신의 2^k 번째 조상을 저장하는 배열을 만든다.
 
 #include <iostream>
 #include <stdio.h>
@@ -21,7 +18,7 @@ int lca(int n1, int n2);
 int main(int argc, char** argv)
 {
     int tcCnt, n1, n2;
-    
+
     freopen("input.txt", "r", stdin);
     cin >> tcCnt;
     for (int t = 0; t < tcCnt; ++t)
@@ -29,7 +26,7 @@ int main(int argc, char** argv)
         cin >> V >> E >> n1 >> n2;
         for (int i = 0; i < V; ++i)
             Tree[i][0] = Tree[i][1] = 0;
-        
+
         for (int i = 0; i < E; ++i) {
             int p, c;
             cin >> p >> c;
@@ -52,7 +49,7 @@ int traversal(int node, int depth) {
         cnt++;
         cnt += traversal(Tree[node][0], depth + 1);
         cnt += traversal(Tree[node][1], depth + 1);
-    }   
+    }
 
     Depth[node] = depth;
     Size[node] = cnt;

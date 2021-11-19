@@ -23,8 +23,6 @@ int solve(int x, int y, int visited) {
 		if (!(visited & (1 << i))) {
 			int tmp = abs(x - customer_x[i]) + abs(y - customer_y[i]);
 			tmp += solve(customer_x[i], customer_y[i], visited | (1 << i));
-			/*cout << tmp << ' ';
-			cout << ret << endl;*/
 			if (tmp < ret) ret = tmp;
 		}
 	}
