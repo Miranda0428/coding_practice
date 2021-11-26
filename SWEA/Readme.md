@@ -119,3 +119,12 @@ company가 root이고 home이 말단 노드라고 보면된다.
 **큰 사이즈의 배열(하나로)**
   
 큰 사이즈의 배열 선언시 edge_type을 solve()함수안에 선언하면 스택이 모자라 컴파일이 안됨
+
+  
+**K번째 문자열 찾기**
+ 
+set에서 K번째 문자열을 찾으려면 iterator를 만들어야 한다.
+  
+![image](https://user-images.githubusercontent.com/17174701/143520992-980c9389-c780-4027-a1af-2f01d1e96379.png)
+
+  
