@@ -191,4 +191,10 @@ i-j 간의 최소거리는 중간 경우하는 k가 있을 경우 i-k, k-j 또�
   
   각 자리 십진수 연산할 때만 integer로 바꾸고 연산 후에는 다시 string으로 바꿔준다. 결과값이 10을 넘으면 carry를 1로 세팅하고 다음 자리수 연산때 더해준다.
   
+  내가 짠 것이 아니기 때문에 다음에 내가 다시 짜보도록 하자.
+  
+  ![image](https://user-images.githubusercontent.com/17174701/145165154-ddf20755-2bcd-4d9f-9a63-e326ac30d2c6.png)
+
+  
+  
   참고로 여기서도 memset 실수를 했다. 주의하자!
