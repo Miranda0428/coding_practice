@@ -193,7 +193,7 @@ i-j 간의 최소거리는 중간 경우하는 k가 있을 경우 i-k, k-j 또�
   
   내가 짠 것이 아니기 때문에 다음에 내가 다시 짜보도록 하자.
   
-  ![image](https://user-images.githubusercontent.com/17174701/145165154-ddf20755-2bcd-4d9f-9a63-e326ac30d2c6.png)
+  ![image](https://user-images.githubusercontent.com/17174701/145165274-c0fe62f7-cc21-4c18-84a4-a484bc57daff.png)
 
   
   
