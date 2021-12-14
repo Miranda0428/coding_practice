@@ -1,5 +1,5 @@
-/*ÃÖ¼Ò½ÅÀåÆ®¸® Ã£±â - Prim, Kruscal ¾Ë°í¸®ÁòÀÌ ÀÖ´Ù.*/
-/*Prim : ³ëµå ±âÁØ, Kruscal : °£¼± ±âÁØ*/
+/*ìµœì†Œì‹ ì¥íŠ¸ë¦¬ ì°¾ê¸° - Prim, Kruscal ì•Œê³ ë¦¬ì¦˜ì´ ìˆë‹¤.*/
+/*Prim : ë…¸ë“œ ê¸°ì¤€, Kruscal : ê°„ì„  ê¸°ì¤€*/
 
 #include <iostream>
 #include <queue>
@@ -15,7 +15,7 @@ int N, graph[MAX_N][MAX_N];
 
 int Prim() {
 	// priority_queue<T, Container, Compare>
-	// ¿øÇÏ´Â ÀÚ·áÇü ¹× Å¬·¡½º T¸¦ ÅëÇØ »ı¼º. ¿©±â¼­ Container´Â vector¿Í °°Àº ÄÁÅ×ÀÌ³Ê, Compare´Â ºñ±³ÇÔ¼ö Å¬·¡½º
+	// ì›í•˜ëŠ” ìë£Œí˜• ë° í´ë˜ìŠ¤ Të¥¼ í†µí•´ ìƒì„±. ì—¬ê¸°ì„œ ContainerëŠ” vectorì™€ ê°™ì€ ì»¨í…Œì´ë„ˆ, CompareëŠ” ë¹„êµí•¨ìˆ˜ í´ë˜ìŠ¤
 	priority_queue < pii, vector<pii>, greater<pii> > pq;
 
 	bool visited[MAX_N] = { false };
@@ -57,8 +57,13 @@ int findset(int node) {
 	int v = node;
 	while (v != Parent[v])
 		v = Parent[v];
-
 	return Parent[v];
+}
+
+int findset_fast(int node) {
+	if(node == Parent[node])
+	   return node;
+	return Parent[node]=findset_fast(Parent[node]);
 }
 
 int Kruscal() {
