@@ -1,4 +1,4 @@
-/*ÃÖ´Ü °æ·Î Ã£±â - Dijkstra, º§¸¸-Æ÷µå, ÇÃ·ÎÀÌµå ¿ö¼È*/
+/*ìµœë‹¨ ê²½ë¡œ ì°¾ê¸° - Dijkstra, ë²¨ë§Œ-í¬ë“œ, í”Œë¡œì´ë“œ ì›Œì…œ*/
 
 #include <iostream>
 #include <queue>
@@ -13,9 +13,35 @@ typedef pair<int, int> pii;
 int N, graph[MAX_N][MAX_N];
 int Dist[MAX_N];
 
+void dijkstra(int start, int* Dist, vector<pair<int, int>>* edge) {
+    priority_queue<pair<int, int>> pq;
+
+    for (int i = 1; i <= N; ++i)
+        Dist[i] = INF;
+    Dist[start] = 0;
+
+    pq.push(make_pair(0, start));
+
+    while (!pq.empty()) {
+        int distance = -pq.top().first;
+        int current = pq.top().second;
+        pq.pop();
+	
+        if (Dist[current] < distance) continue;  // ì´ë ‡ê²Œ í•˜ë©´ visit ë°°ì—´ì´ í•„ìš”ì—†ë‹¤.
+        for (int i = 0; i < (int)edge[current].size(); ++i) {
+            int nextdist = distance + edge[current][i].first;
+            int there = edge[current][i].second;
+            if (Dist[there] > nextdist) {
+                Dist[there] = nextdist;
+                pq.push(make_pair(-nextdist, there));
+            }
+        }
+    }
+}
+
 int dijkstra(int src, int dst) {
 	// priority_queue<T, Container, Compare>
-	// ¿øÇÏ´Â ÀÚ·áÇü ¹× Å¬·¡½º T¸¦ ÅëÇØ »ı¼º. ¿©±â¼­ Container´Â vector¿Í °°Àº ÄÁÅ×ÀÌ³Ê, Compare´Â ºñ±³ÇÔ¼ö Å¬·¡½º
+	// ì›í•˜ëŠ” ìë£Œí˜• ë° í´ë˜ìŠ¤ Të¥¼ í†µí•´ ìƒì„±. ì—¬ê¸°ì„œ ContainerëŠ” vectorì™€ ê°™ì€ ì»¨í…Œì´ë„ˆ, CompareëŠ” ë¹„êµí•¨ìˆ˜ í´ë˜ìŠ¤
 	priority_queue < pii, vector<pii>, greater<pii> > pq;
 	bool visited[MAX_N] = { false };
 	for (int i = 0; i < N; ++i) Dist[i] = INF;
