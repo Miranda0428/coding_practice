@@ -83,6 +83,25 @@ int Kruscal() {
 	return sum;
 }
 
+int Kruscal_fast(priority_queue<edge_type, vector<edge_type>, pq_compare> pq) {
+    for (int i = 1; i <= N; ++i)
+        Parent[i] = i;
+
+    int sum = 0;
+    while(!pq.empty()){
+        int u = pq.top().u;
+        int v = pq.top().v;
+        if (findset(u) == findset(v)){
+            pq.pop();
+            continue;
+        }
+        else Parent[findset(v)] = findset(u);
+        sum += pq.top().cost;
+        pq.pop();
+    }
+    return sum;
+}
+
 
 void make_graph() {
 
