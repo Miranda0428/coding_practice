@@ -247,3 +247,10 @@ Kruscal을 쓰더라도 findset을 최적화시키지 못하면 시간 초과가
   visit를 0x01의 비트를 밀어서 재귀호출할게 아니고 배열로 표시할거라면 visit 표시->재귀호출->visit 원복을 꼭 해줘야한다.
   
   ![image](https://user-images.githubusercontent.com/17174701/145949620-ca91d649-d082-41a5-a466-5211e2d5349a.png)
+  
+  
+  **결과값의 자료형**
+  
+  결과값이 예상과 다르게 큰 경우가 있다. Pole, Inversion Counting과 같은 문제의 경우, 결과값을 int 형으로 선언하면 Fail!
+  
+  long long으로 선언해 주어야 한다.(입력값이 100000과 같이 큰 것에 착안하여 결과값 자료형 선언시 참고한다.)
