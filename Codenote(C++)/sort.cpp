@@ -18,3 +18,20 @@ void mergesort(int arr[], int size) {
 
     delete buf;
 }
+
+
+void quicksort(int arr[], int left, int right) {
+    if (left < right) {
+        int p = left; int i = left + 1; int j = right;
+        while (i <= j) {
+            while (arr[p] >= arr[i]) i++;
+            while (arr[p] < arr[j]) j--;
+            if (i < j)
+                swap(arr[i], arr[j]);
+        }
+        swap(arr[p], arr[j]);
+
+        quicksort(arr, left, j - 1);
+        quicksort(arr, j + 1, right);
+    }
+}
