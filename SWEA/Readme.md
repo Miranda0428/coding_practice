@@ -254,3 +254,8 @@ Kruscal을 쓰더라도 findset을 최적화시키지 못하면 시간 초과가
   결과값이 예상과 다르게 큰 경우가 있다. Pole, Inversion Counting과 같은 문제의 경우, 결과값을 int 형으로 선언하면 Fail!
   
   long long으로 선언해 주어야 한다.(입력값이 100000과 같이 큰 것에 착안하여 결과값 자료형 선언시 참고한다.)
+
+  
+  최대값의 최소값 찾기(평등주의)
+  
+  이분탐색 + Parametric Search
