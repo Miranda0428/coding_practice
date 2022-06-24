@@ -1,6 +1,4 @@
 #include <iostream>
-#include <algorithm>
-#include <string>
 
 #pragma warning(disable:4996)
 using namespace std;
@@ -16,7 +14,7 @@ bool IsPossible(int middle) {
     int cnt = 0;
     int data = 0;
 
-    for (int i = 0; i < MAX_W; ++i) {
+    for (int i = 0; i < N; ++i) {
         if (W[i] <= middle) cnt++;
         else cnt = 0;
 
@@ -28,7 +26,6 @@ bool IsPossible(int middle) {
         if (data == K)
             return true;
     }
-
     return false;
 }
 
